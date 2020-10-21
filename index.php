@@ -57,4 +57,4 @@ Click to <input type="submit" name="logout" value="Logout" class="logout-button"
 </div>
 </div>
 <?php } ?>
-<?php include('template\footer.php'); ?>
+<?php include('template\common\footer.php'); ?>
