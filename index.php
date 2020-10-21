@@ -1,7 +1,7 @@
+<?php include('template\common\base.php'); ?>
 <?php
-session_start();
-include("config.php");
 $message="";
+
 if(!empty($_POST["login"])) {
 	$result = mysqli_query($conn,"SELECT * FROM register_tbl WHERE email='" . $_POST["email"] . "' and password = '". $_POST["password"]."'");
 	$row  = mysqli_fetch_array($result);
@@ -16,18 +16,6 @@ if(!empty($_POST["logout"])) {
 	session_destroy();
 }
 ?>
-<html>
-<head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <body background ="picture.jpg">
-<title>User Login</title>
-<div class="container">
-<style>
-</style>
-</head>
-<body>
              <div class="row">
 			 <div class="col-lg-6 m-auto">
 			  <div class="card bg-white mt-5">
@@ -38,7 +26,7 @@ if(!empty($_POST["logout"])) {
 			 
          
 <div>
- 
+
 <?php if(empty($_SESSION["id"])) { ?>
 <form action="" method="post" id="frmLogin">
 	<div class="error-message"><?php if(isset($message)) { echo $message; } ?></div>	
@@ -69,4 +57,4 @@ Click to <input type="submit" name="logout" value="Logout" class="logout-button"
 </div>
 </div>
 <?php } ?>
-</body></html>
+<?php include('template\footer.php'); ?>
