@@ -1,5 +1,6 @@
 </div> <!-- End of the base container-->
-<script src=".\static\bootstrap\js\bootstrap.min.js"></script>
+<script src="..\static\js\jquery.js"></script>
+<script src="..\static\js\bootstrap.js"></script>
 </body>
 
 </html>

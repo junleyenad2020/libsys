@@ -1,5 +1,25 @@
 <?php include_once('../template/common/navbar.php'); ?>
 <?php include_once('../template/common/base.php'); ?>
+
+<?php
+// make it a function to call out 
+$message = "";
+
+if (!empty($_POST["login"])) {
+    $result = mysqli_query($conn, "SELECT * FROM register_tbl WHERE email='" . $_POST["email"] . "' and password = '" . $_POST["password"] . "'");
+    $row  = mysqli_fetch_array($result);
+    if (is_array($row)) {
+        $_SESSION["id"] = $row['id'];
+    } else {
+        $message = "Invalid Username or Password!";
+    }
+}
+if (!empty($_POST["logout"])) {
+    $_SESSION["id"] = "";
+    session_destroy();
+}
+?>
+
 <div class="row justify-content-center" style="margin-top:150px;">
     <div class="col-md-6">
         <div class="card">
@@ -34,3 +54,4 @@
     </div>
 </div>
 </div>
+<?php include_once('../template/common/footer.php'); ?>
